@@ -146,119 +146,39 @@ KSRegisterStoneToolRecipe("deadshrub", "aragonite")
 
 
 
-
-
-
-
-
 -- Now for the metal tools!
--- Aluminum toolheads
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium", "ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_pickaxe"
-})
+function KSRegisterMetalToolRecipe(woodType, metalType)
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. metalType .. "_pickaxe", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. metalType .. "_pickaxe"
+	})
 
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_shovel"
-})
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. metalType .. "_axe", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. metalType .. "_axe"
+	})
 
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium"},
-		{"ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_axe"
-})
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. metalType .. "_shovel", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. metalType .. "_shovel"
+	})
+end
 
+KSRegisterMetalToolRecipe("juniper", "aluminium")
+KSRegisterMetalToolRecipe("holly", "aluminium")
+KSRegisterMetalToolRecipe("douglasfir", "aluminium")
+KSRegisterMetalToolRecipe("deadshrub", "aluminium")
 
+KSRegisterMetalToolRecipe("juniper", "copper")
+KSRegisterMetalToolRecipe("holly", "copper")
+KSRegisterMetalToolRecipe("douglasfir", "copper")
+KSRegisterMetalToolRecipe("deadshrub", "copper")
 
--- Copper toolheads
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium", "ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_pickaxe"
-})
+KSRegisterMetalToolRecipe("juniper", "temp_aluminium")
+KSRegisterMetalToolRecipe("holly", "temp_aluminium")
+KSRegisterMetalToolRecipe("douglasfir", "temp_aluminium")
+KSRegisterMetalToolRecipe("deadshrub", "temp_aluminium")
 
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_shovel"
-})
-
-minetest.register_craft({
-	recipe = {
-		{"ks_metals:aluminium"},
-		{"ks_metals:aluminium"}
-	},
-	output = "ks_tools:toolhead_aluminium_axe"
-})
-
-
-
--- Aluminium Shovel
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_shovel", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aluminium_shovel"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_shovel", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aluminium_shovel"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_shovel", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aluminium_shovel"
-})
-
-
-
--- Aluminium Pickaxe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_pickaxe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aluminium_pickaxe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_pickaxe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aluminium_pickaxe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_pickaxe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aluminium_pickaxe"
-})
-
-
-
--- Aluminium Axe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_axe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aluminium_axe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_axe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aluminium_axe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aluminium_axe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aluminium_axe"
-})
