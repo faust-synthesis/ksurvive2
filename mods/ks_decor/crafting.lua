@@ -25,13 +25,51 @@ minetest.register_craft({
 	output = "ks_decor:douglasfir_bin 2"
 })
 
+
+
 minetest.register_craft({
 	recipe = {
 		{"ks_decor:ceramic_shard", "                      ", "ks_decor:ceramic_shard"},
 		{"ks_decor:ceramic_shard", "                      ", "ks_decor:ceramic_shard"},
 		{"ks_decor:ceramic_shard", "ks_decor:ceramic_shard", "ks_decor:ceramic_shard"},
 	},
-	output = "ks_decor:ceramic_pot"
+	output = "ks_decor:ceramic_pot_dyenone"
+})
+
+minetest.register_craft({
+	recipe = {
+		{"ks_decor:ceramic_shard", "                      ", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_flora:holly_berries", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_decor:ceramic_shard", "ks_decor:ceramic_shard"},
+	},
+	output = "ks_decor:ceramic_pot_dyered"
+})
+
+minetest.register_craft({
+	recipe = {
+		{"ks_decor:ceramic_shard", "                        ", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_flora:juniper_berries", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_decor:ceramic_shard  ", "ks_decor:ceramic_shard"},
+	},
+	output = "ks_decor:ceramic_pot_dyepurple"
+})
+
+minetest.register_craft({
+	recipe = {
+		{"ks_decor:ceramic_shard", "                      ", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_flora:juncus_stalk ", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_decor:ceramic_shard", "ks_decor:ceramic_shard"},
+	},
+	output = "ks_decor:ceramic_pot_dyegreen"
+})
+
+minetest.register_craft({
+	recipe = {
+		{"ks_decor:ceramic_shard", "                         ", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_flora:snowy_dead_shrub", "ks_decor:ceramic_shard"},
+		{"ks_decor:ceramic_shard", "ks_decor:ceramic_shard   ", "ks_decor:ceramic_shard"},
+	},
+	output = "ks_decor:ceramic_pot_dyegrey"
 })
 
 

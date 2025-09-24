@@ -1,43 +1,26 @@
-minetest.register_craftitem("ks_tools:toolhead_aluminium_pickaxe", {
-	description = "Aluminium Pickaxe Head",
-	inventory_image = "tools.toolhead_aluminium_pickaxe.png",
-	wield_image = "tools.toolhead_aluminium_pickaxe.png",
-	groups = {metal_toolhead = 1, aluminium_toolhead = 1, pickaxe_toolhead = 1}
-})
+function KSRegisterMetalToolhead(metalType, metalName, groupOverride)
+	minetest.register_craftitem("ks_tools:toolhead_" .. metalType .. "_pickaxe", {
+		description = metalName .. " Pickaxe Head",
+		inventory_image = "tools.toolhead_" .. metalType .. "_pickaxe.png",
+		wield_image = "tools.toolhead_" .. metalType .. "_pickaxe.png",
+		groups = concat(groupOverride, {metal_toolhead = 1, pickaxe_toolhead = 1})
+	})
 
-minetest.register_craftitem("ks_tools:toolhead_aluminium_shovel", {
-	description = "Aluminium Shovel Head",
-	inventory_image = "tools.toolhead_aluminium_shovel.png",
-	wield_image = "tools.toolhead_aluminium_shovel.png",
-	groups = {metal_toolhead = 1, aluminium_toolhead = 1, shovel_toolhead = 1}
-})
+	minetest.register_craftitem("ks_tools:toolhead_" .. metalType .. "_shovel", {
+		description = metalName .. " Shovel Head",
+		inventory_image = "tools.toolhead_" .. metalType .. "_shovel.png",
+		wield_image = "tools.toolhead_" .. metalType .. "_shovel.png",
+		groups = concat(groupOverride, {metal_toolhead = 1, shovel_toolhead = 1})
+	})
 
-minetest.register_craftitem("ks_tools:toolhead_aluminium_axe", {
-	description = "Aluminium Axe Head",
-	inventory_image = "tools.toolhead_aluminium_axe.png",
-	wield_image = "tools.toolhead_aluminium_axe.png",
-	groups = {metal_toolhead = 1, aluminium_toolhead = 1, axe_toolhead = 1}
-})
+	minetest.register_craftitem("ks_tools:toolhead_" .. metalType .. "_axe", {
+		description = metalName .. " Axe Head",
+		inventory_image = "tools.toolhead_" .. metalType .. "_axe.png",
+		wield_image = "tools.toolhead_" .. metalType .. "_axe.png",
+		groups = concat(groupOverride, {metal_toolhead = 1, axe_toolhead = 1})
+	})
+end
 
-
-
-minetest.register_craftitem("ks_tools:toolhead_copper_pickaxe", {
-	description = "Copper Pickaxe Head",
-	inventory_image = "tools.toolhead_copper_pickaxe.png",
-	wield_image = "tools.toolhead_copper_pickaxe.png",
-	groups = {metal_toolhead = 1, copper_toolhead = 1, pickaxe_toolhead = 1}
-})
-
-minetest.register_craftitem("ks_tools:toolhead_copper_shovel", {
-	description = "Copper Shovel Head",
-	inventory_image = "tools.toolhead_copper_shovel.png",
-	wield_image = "tools.toolhead_copper_shovel.png",
-	groups = {metal_toolhead = 1, copper_toolhead = 1, shovel_toolhead = 1}
-})
-
-minetest.register_craftitem("ks_tools:toolhead_copper_axe", {
-	description = "Copper Axe Head",
-	inventory_image = "tools.toolhead_copper_axe.png",
-	wield_image = "tools.toolhead_copper_axe.png",
-	groups = {metal_toolhead = 1, copper_toolhead = 1, axe_toolhead = 1}
-})
+KSRegisterMetalToolhead("aluminium", "Aluminium", {aluminium_toolhead = 1})
+KSRegisterMetalToolhead("copper", "Copper", {copper_toolhead = 1})
+KSRegisterMetalToolhead("temp_aluminium", "Tempered Aluminium", {temp_aluminium_toolhead = 1, aluminium_toolhead = 1})

@@ -1,44 +1,4 @@
---Adzes
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:douglasfir_stick", "ks_tools:douglasfir_stick"},
-		{"                         ", "ks_tools:douglasfir_stick"},
-		{"                         ", "ks_tools:douglasfir_stick"}
-	},
-	output = "ks_tools:douglasfir_adze"
-})
-
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:juniper_stick", "ks_tools:juniper_stick"},
-		{"                      ", "ks_tools:juniper_stick"},
-		{"                      ", "ks_tools:juniper_stick"}
-	},
-	output = "ks_tools:juniper_adze"
-})
-
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:holly_stick", "ks_tools:holly_stick"},
-		{"                    ", "ks_tools:holly_stick"},
-		{"                    ", "ks_tools:holly_stick"}
-	},
-	output = "ks_tools:holly_adze"
-})
-
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:deadshrub_stick", "ks_tools:deadshrub_stick"},
-		{"                        ", "ks_tools:deadshrub_stick"},
-		{"                        ", "ks_tools:deadshrub_stick"}
-	},
-	output = "ks_tools:deadshrub_adze"
-})
-
-
-
--- Toolheads and rocks (and deadshrub stick)
--- Deadshrub
+-- Just some static recipes that can't (or don't have to) really be automated.
 minetest.register_craft({
 	type = "shapeless",
 	recipe = {"ks_flora:snowy_dead_shrub", "ks_flora:snowy_dead_shrub"},
@@ -65,200 +25,129 @@ minetest.register_craft({
 	output = "ks_tools:dolomite_sharpened_rock"
 })
 
--- Toolheads (stone)
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:aragonite_sharpened_rock", "ks_tools:aragonite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_aragonite_pickaxe"
-})
 
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:aragonite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_aragonite_shovel"
-})
 
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:aragonite_sharpened_rock"},
-		{"ks_tools:aragonite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_aragonite_axe"
-})
+-- Here starts the automation. First with adzes.
 
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:dolomite_sharpened_rock", "ks_tools:dolomite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_dolomite_pickaxe"
-})
+function KSRegisterAdzeRecipe(woodType)
+	minetest.register_craft({
+		recipe = {
+			{"ks_tools:" .. woodType .. "_stick", "ks_tools:" .. woodType .. "_stick"},
+			{"                                 ", "ks_tools:" .. woodType .. "_stick"},
+			{"                                 ", "ks_tools:" .. woodType .. "_stick"}
+		},
+		output = "ks_tools:" .. woodType .. "_adze"
+	})
+end
 
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:dolomite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_dolomite_shovel"
-})
-
-minetest.register_craft({
-	recipe = {
-		{"ks_tools:dolomite_sharpened_rock"},
-		{"ks_tools:dolomite_sharpened_rock"}
-	},
-	output = "ks_tools:toolhead_dolomite_axe"
-})
+KSRegisterAdzeRecipe("holly")
+KSRegisterAdzeRecipe("juniper")
+KSRegisterAdzeRecipe("douglasfir")
+KSRegisterAdzeRecipe("deadshrub")
 
 
 
--- Dolomite Pickaxe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_pickaxe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_dolomite_pickaxe"
-})
+-- Some tool heads (stone and metal)
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_pickaxe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_dolomite_pickaxe"
-})
+function KSRegisterStoneHeadRecipe(itemType)
+	minetest.register_craft({
+		recipe = {
+			{"ks_tools:" .. itemType .. "_sharpened_rock", "ks_tools:" .. itemType .. "_sharpened_rock"}
+		},
+		output = "ks_tools:toolhead_" .. itemType .. "_pickaxe"
+	})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_pickaxe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_dolomite_pickaxe"
-})
+	minetest.register_craft({
+		recipe = {
+			{"ks_tools:" .. itemType .. "_sharpened_rock"}
+		},
+		output = "ks_tools:toolhead_" .. itemType .. "_shovel"
+	})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_pickaxe", "ks_tools:deadshrub_stick"},
-	output = "ks_tools:deadshrub_dolomite_pickaxe"
-})
+	minetest.register_craft({
+		recipe = {
+			{"ks_tools:" .. itemType .. "_sharpened_rock"},
+			{"ks_tools:" .. itemType .. "_sharpened_rock"}
+		},
+		output = "ks_tools:toolhead_" .. itemType .. "_axe"
+	})
+end
 
+function KSRegisterMetalHeadRecipe(metalInputType, metalOutputType)
+	minetest.register_craft({
+		recipe = {
+			{"ks_metals:" .. metalInputType, "ks_metals:" .. metalInputType}
+		},
+		output = "ks_tools:toolhead_" .. metalOutputType .. "_pickaxe"
+	})
 
+	minetest.register_craft({
+		recipe = {
+			{"ks_metals:" .. metalInputType}
+		},
+		output = "ks_tools:toolhead_" .. metalOutputType .. "_shovel"
+	})
 
--- Dolomite Shovel
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_shovel", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_dolomite_shovel"
-})
+	minetest.register_craft({
+		recipe = {
+			{"ks_metals:" .. metalInputType},
+			{"ks_metals:" .. metalInputType}
+		},
+		output = "ks_tools:toolhead_" .. metalOutputType .. "_axe"
+	})
+end
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_shovel", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_dolomite_shovel"
-})
+KSRegisterStoneHeadRecipe("dolomite")
+KSRegisterStoneHeadRecipe("aragonite")
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_shovel", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_dolomite_shovel"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_shovel", "ks_tools:deadshrub_stick"},
-	output = "ks_tools:deadshrub_dolomite_shovel"
-})
-
-
-
--- Dolomite Axe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_axe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_dolomite_axe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_axe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_dolomite_axe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_axe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_dolomite_axe"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_dolomite_axe", "ks_tools:deadshrub_stick"},
-	output = "ks_tools:deadshrub_dolomite_axe"
-})
+KSRegisterMetalHeadRecipe("aluminium", "aluminium")
+KSRegisterMetalHeadRecipe("copper", "copper")
+KSRegisterMetalHeadRecipe("molten_aluminium", "temp_aluminium")
 
 
 
--- Aragonite Pickaxe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_pickaxe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aragonite_pickaxe"
-})
+-- Now for the tools themselves. Stone first.
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_pickaxe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aragonite_pickaxe"
-})
+function KSRegisterStoneToolRecipe(woodType, stoneType)
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. stoneType .. "_pickaxe", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. stoneType .. "_pickaxe"
+	})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_pickaxe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aragonite_pickaxe"
-})
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. stoneType .. "_axe", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. stoneType .. "_axe"
+	})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_pickaxe", "ks_tools:deadshrub_stick"},
-	output = "ks_tools:deadshrub_aragonite_pickaxe"
-})
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:toolhead_" .. stoneType .. "_shovel", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. stoneType .. "_shovel"
+	})
 
+	minetest.register_craft({
+		type = "shapeless",
+		recipe = {"ks_tools:" .. stoneType .. "_sharpened_rock", "ks_tools:" .. woodType .. "_stick"},
+		output = "ks_tools:" .. woodType .. "_" .. stoneType .. "_chisel"
+	})
+end
 
+KSRegisterStoneToolRecipe("juniper", "dolomite")
+KSRegisterStoneToolRecipe("holly", "dolomite")
+KSRegisterStoneToolRecipe("douglasfir", "dolomite")
+KSRegisterStoneToolRecipe("deadshrub", "dolomite")
 
--- Aragonite Shovel
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_shovel", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aragonite_shovel"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_shovel", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aragonite_shovel"
-})
-
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_shovel", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aragonite_shovel"
-})
+KSRegisterStoneToolRecipe("juniper", "aragonite")
+KSRegisterStoneToolRecipe("holly", "aragonite")
+KSRegisterStoneToolRecipe("douglasfir", "aragonite")
+KSRegisterStoneToolRecipe("deadshrub", "aragonite")
 
 
 
--- Aragonite Axe
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_axe", "ks_tools:juniper_stick"},
-	output = "ks_tools:juniper_aragonite_axe"
-})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_axe", "ks_tools:douglasfir_stick"},
-	output = "ks_tools:douglasfir_aragonite_axe"
-})
 
-minetest.register_craft({
-	type = "shapeless",
-	recipe = {"ks_tools:toolhead_aragonite_axe", "ks_tools:holly_stick"},
-	output = "ks_tools:holly_aragonite_axe"
-})
 
 
 

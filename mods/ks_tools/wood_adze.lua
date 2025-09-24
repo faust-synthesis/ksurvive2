@@ -17,6 +17,7 @@ function KSRegisterAdze(woodType, woodName, durabilityOverride)
 			damage_groups = {fleshy=tool_damage},
 		},
 		visual_scale = 1.69,
+		groups = {adze = 1}
 	})
 end
 

@@ -1,14 +1,6 @@
 local tool_durability = 50
 local tool_damage = 0.25
 
-function concat(t1,t2)
-   for i=1,#t2 do
-      t1[#t1+1] = t2[i]
-   end
-   return t1
-end
-
-
 function KSRegisterToolsTier2(woodType, headType, headName, groupsOverride, durabilityOverride)
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_pickaxe", {
 		description = headName .. " Pickaxe",
@@ -78,3 +70,9 @@ KSRegisterToolsTier2("juniper", "copper", "Copper", {metal_tool = 1, copper_tool
 KSRegisterToolsTier2("douglasfir", "copper", "Copper", {metal_tool = 1, copper_tool = 1}, 1)
 KSRegisterToolsTier2("holly", "copper", "Copper", {metal_tool = 1, copper_tool = 1}, 1)
 KSRegisterToolsTier2("deadshrub", "copper", "Copper", {metal_tool = 1, copper_tool = 1}, 2.5)
+
+
+KSRegisterToolsTier2("juniper", "temp_aluminium", "Tempered Aluminium", {metal_tool = 1, aluminium_tool = 1}, 0.25)
+KSRegisterToolsTier2("douglasfir", "temp_aluminium", "Tempered Aluminium", {metal_tool = 1, aluminium_tool = 1}, 0.25)
+KSRegisterToolsTier2("holly", "temp_aluminium", "Tempered Aluminium", {metal_tool = 1, aluminium_tool = 1}, 0.25)
+KSRegisterToolsTier2("deadshrub", "temp_aluminium", "Tempered Aluminium", {metal_tool = 1, aluminium_tool = 1}, 1)

@@ -1,4 +1,5 @@
 local modpath = minetest.get_modpath("ks_decor")
+dofile(modpath.."/../ks_common/init.lua")
 
 dofile(modpath.."/bricks.lua")
 dofile(modpath.."/mud.lua")

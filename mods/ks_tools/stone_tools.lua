@@ -1,13 +1,5 @@
-local tool_durability = 25
+local tool_durability = 20
 local tool_damage = 0.5
-
-function concat(t1,t2)
-   for i=1,#t2 do
-      t1[#t1+1] = t2[i]
-   end
-   return t1
-end
-
 
 function KSRegisterToolsTier1(woodType, headType, headName, groupsOverride, durabilityOverride)
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_pickaxe", {
