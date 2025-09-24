@@ -20,17 +20,3 @@ minetest.register_node("ks_decor:eclogite_bricks", {
 	groups = {stonebricks = 1, chippable = 3},
 	is_ground_content = true,
 })
-
-minetest.register_node("ks_decor:rose_quartz_bricks", {
-	description = "Rose Quartz Bricks",
-	tiles = {"decor.rose_quartz_bricks.png"},
-	groups = {stonebricks = 1, chippable = 1},
-	is_ground_content = true,
-})
-
-minetest.register_node("ks_decor:fluorite_bricks", {
-	description = "Fluorite Bricks",
-	tiles = {"decor.fluorite_bricks.png"},
-	groups = {stonebricks = 1, chippable = 1},
-	is_ground_content = true,
-})
