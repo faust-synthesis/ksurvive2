@@ -93,19 +93,20 @@ KSRegisterLanternWood("douglasfir")
 
 
 
-function KSRegisterLampStone(stoneType)
+function KSRegisterLampStone(stoneNode, stoneType)
 	minetest.register_craft({
 		recipe = {
-			{"ks_tools:" .. stoneType .. "_rock", "ks_tools:" .. stoneType .. "_rock", "ks_tools:" .. stoneType .. "_rock"},
+			{stoneNode, stoneNode, stoneNode},
 			{"ks_glass:annealed_glass", "group:firebrand", "ks_glass:annealed_glass"},
-			{"ks_tools:" .. stoneType .. "_rock", "ks_tools:" .. stoneType .. "_rock", "ks_tools:" .. stoneType .. "_rock"}
+			{stoneNode, stoneNode, stoneNode}
 		},
 		output = "ks_decor:" .. stoneType .. "_lamp"
 	})
 end
 
-KSRegisterLampStone("dolomite")
-KSRegisterLampStone("aragonite")
+KSRegisterLampStone("ks_tools:dolomite_rock", "dolomite")
+KSRegisterLampStone("ks_tools:aragonite_rock", "aragonite")
+KSRegisterLampStone("ks_terrain:eclogite", "eclogite")
 
 
 

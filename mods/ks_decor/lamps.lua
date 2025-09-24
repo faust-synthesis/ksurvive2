@@ -27,24 +27,6 @@ minetest.register_node("ks_decor:eclogite_lamp", {
 	walkable = false,
 })
 
-minetest.register_node("ks_decor:rose_quartz_lamp", {
-	description = "Rose Quartz Lamp",
-	drawtype = "plantlike",
-	light_source = 14,
-	tiles = {"decor.rose_quartz_lamp.png"},
-	groups = {stonelamp = 1, chippable = 1},
-	walkable = false,
-})
-
-minetest.register_node("ks_decor:fluorite_lamp", {
-	description = "Fluorite Lamp",
-	drawtype = "plantlike",
-	light_source = 14,
-	tiles = {"decor.fluorite_lamp.png"},
-	groups = {stonelamp = 1, chippable = 1},
-	walkable = false,
-})
-
 minetest.register_node("ks_decor:holly_lantern", {
 	description = "Holly Lantern",
 	drawtype = "plantlike",
