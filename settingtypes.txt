@@ -1,0 +1,1 @@
+ks2_spawn_structures (Enable Spawning Structures) bool true
