@@ -1,5 +1,5 @@
 core.register_node(":ks2_metallurgy:mold_diabolo", {
-	description = "Diabolo Mold",
+	description = "Double-Ingot Mold",
 	tiles = {
 		"metallurgy.diabolo_drymold_top.png",
 		"metallurgy.dryclay.png",
@@ -26,7 +26,7 @@ core.register_node(":ks2_metallurgy:mold_diabolo", {
 })
 
 core.register_node(":ks2_metallurgy:mold", {
-	description = "Mold",
+	description = "Ingot Mold",
 	tiles = {
 		"metallurgy.drymold_top.png",
 		"metallurgy.dryclay.png",
@@ -45,3 +45,5 @@ core.register_node(":ks2_metallurgy:mold", {
 		}
 	}
 })
+
+ks2rg.register_metal_ingot("aluminium", "Aluminium")
