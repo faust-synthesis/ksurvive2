@@ -159,7 +159,60 @@ minetest.register_node("ks_terrain:feldspar", {
 	tiles = {"terrain.feldspar.png"},
 	groups = {stone = 1, igneousrock = 1, chippable = 2},
 	is_ground_content = true,
+	node_dig_prediction = "ks_terrain:feldspar_damaged1",
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+		minetest.set_node(pos, {name = "ks_terrain:feldspar_damaged1"})
+	end,
+	drop = "",
 	sounds = ks_sounds.bedrocknode_sounds,
+})
+
+minetest.register_node("ks_terrain:feldspar_damaged1", {
+	description = "Damaged Feldspar",
+	tiles = {"terrain.feldspar_damaged1.png"},
+	groups = {stone = 1, igneousrock = 1, chippable = 2},
+	is_ground_content = true,
+	node_dig_prediction = "ks_terrain:feldspar_damaged2",
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+		minetest.set_node(pos, {name = "ks_terrain:feldspar_damaged2"})
+	end,
+	drop = "",
+	sounds = ks_sounds.generalnode_sounds,
+})
+
+minetest.register_node("ks_terrain:feldspar_damaged2", {
+	description = "Damaged Feldspar",
+	tiles = {"terrain.feldspar_damaged2.png"},
+	groups = {stone = 1, igneousrock = 1, chippable = 2},
+	is_ground_content = true,
+	node_dig_prediction = "ks_terrain:feldspar_damaged3",
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+		minetest.set_node(pos, {name = "ks_terrain:feldspar_damaged3"})
+	end,
+	drop = "",
+	sounds = ks_sounds.generalnode_sounds,
+})
+
+minetest.register_node("ks_terrain:feldspar_damaged3", {
+	description = "Damaged Feldspar",
+	tiles = {"terrain.feldspar_damaged3.png"},
+	groups = {stone = 1, igneousrock = 1, chippable = 2},
+	is_ground_content = true,
+	node_dig_prediction = "ks_terrain:feldspar_damaged4",
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+		minetest.set_node(pos, {name = "ks_terrain:feldspar_damaged4"})
+	end,
+	drop = "",
+	sounds = ks_sounds.generalnode_sounds,
+})
+
+minetest.register_node("ks_terrain:feldspar_damaged4", {
+	description = "Feldspar Gravel",
+	tiles = {"terrain.feldspar_damaged4.png"},
+	groups = {gravel = 1, diggable = 2, falling_node = 1},
+	is_ground_content = true,
+	drop = "ks_tools:feldspar_rock 2",
+	sounds = ks_sounds.generalnode_sounds,
 })
 
 minetest.register_node("ks_terrain:feldspar_red", {

@@ -23,3 +23,26 @@ end
 
 KSRegisterStoneToolhead("dolomite", "Dolomite", {dolomite_toolhead = 1})
 KSRegisterStoneToolhead("aragonite", "Aragonite", {aragonite_toolhead = 1})
+
+
+
+minetest.register_craftitem("ks_tools:toolhead_eclogite_pickaxe", {
+	description = "Eclogite Pickaxe Head",
+	inventory_image = "tools.toolhead_eclogite_pickaxe.png",
+	wield_image = "tools.toolhead_eclogite_pickaxe.png",
+	groups = {stone_toolhead = 1, pickaxe_toolhead = 1, eclogite_toolhead = 1}
+})
+
+minetest.register_craftitem("ks_tools:toolhead_eclogite_shovel", {
+	description = "Eclogite Shovel Head",
+	inventory_image = "tools.toolhead_eclogite_shovel.png",
+	wield_image = "tools.toolhead_eclogite_shovel.png",
+	groups = {stone_toolhead = 1, shovel_toolhead = 1, eclogite_toolhead = 1}
+})
+
+minetest.register_craftitem("ks_tools:toolhead_eclogite_axe", {
+	description = "Eclogite Axe Head",
+	inventory_image = "tools.toolhead_eclogite_axe.png",
+	wield_image = "tools.toolhead_eclogite_axe.png",
+	groups = {stone_toolhead = 1, axe_toolhead = 1, eclogite_toolhead = 1}
+})

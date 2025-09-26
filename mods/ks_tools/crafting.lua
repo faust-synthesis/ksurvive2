@@ -147,7 +147,7 @@ KSRegisterStoneToolRecipe("deadshrub", "aragonite")
 
 
 -- Now for the metal tools!
-function KSRegisterMetalToolRecipe(woodType, metalType)
+function KSRegisterMetalToolRecipe(woodType, metalType, rawMetalNode)
 	minetest.register_craft({
 		type = "shapeless",
 		recipe = {"ks_tools:toolhead_" .. metalType .. "_pickaxe", "ks_tools:" .. woodType .. "_stick"},
@@ -165,20 +165,36 @@ function KSRegisterMetalToolRecipe(woodType, metalType)
 		recipe = {"ks_tools:toolhead_" .. metalType .. "_shovel", "ks_tools:" .. woodType .. "_stick"},
 		output = "ks_tools:" .. woodType .. "_" .. metalType .. "_shovel"
 	})
+
+	minetest.register_craft({
+		recipe = {
+			{"", rawMetalNode},
+			{rawMetalNode, ""}
+		},
+		output = "ks_tools:" .. metalType .. "_tongs"
+	})
+
+	minetest.register_craft({
+		recipe = {
+			{rawMetalNode, ""},
+			{"", rawMetalNode}
+		},
+		output = "ks_tools:" .. metalType .. "_tongs"
+	})
 end
 
-KSRegisterMetalToolRecipe("juniper", "aluminium")
-KSRegisterMetalToolRecipe("holly", "aluminium")
-KSRegisterMetalToolRecipe("douglasfir", "aluminium")
-KSRegisterMetalToolRecipe("deadshrub", "aluminium")
+KSRegisterMetalToolRecipe("juniper", "aluminium", "ks_metals:aluminium")
+KSRegisterMetalToolRecipe("holly", "aluminium", "ks_metals:aluminium")
+KSRegisterMetalToolRecipe("douglasfir", "aluminium", "ks_metals:aluminium")
+KSRegisterMetalToolRecipe("deadshrub", "aluminium", "ks_metals:aluminium")
 
-KSRegisterMetalToolRecipe("juniper", "copper")
-KSRegisterMetalToolRecipe("holly", "copper")
-KSRegisterMetalToolRecipe("douglasfir", "copper")
-KSRegisterMetalToolRecipe("deadshrub", "copper")
+KSRegisterMetalToolRecipe("juniper", "copper", "ks_metals:copper")
+KSRegisterMetalToolRecipe("holly", "copper", "ks_metals:copper")
+KSRegisterMetalToolRecipe("douglasfir", "copper", "ks_metals:copper")
+KSRegisterMetalToolRecipe("deadshrub", "copper", "ks_metals:copper")
 
-KSRegisterMetalToolRecipe("juniper", "temp_aluminium")
-KSRegisterMetalToolRecipe("holly", "temp_aluminium")
-KSRegisterMetalToolRecipe("douglasfir", "temp_aluminium")
-KSRegisterMetalToolRecipe("deadshrub", "temp_aluminium")
+KSRegisterMetalToolRecipe("juniper", "temp_aluminium", "ks_metals:molten_aluminium")
+KSRegisterMetalToolRecipe("holly", "temp_aluminium", "ks_metals:molten_aluminium")
+KSRegisterMetalToolRecipe("douglasfir", "temp_aluminium", "ks_metals:molten_aluminium")
+KSRegisterMetalToolRecipe("deadshrub", "temp_aluminium", "ks_metals:molten_aluminium")
 

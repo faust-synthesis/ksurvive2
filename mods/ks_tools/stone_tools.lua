@@ -1,5 +1,5 @@
-local tool_durability = 20
-local tool_damage = 0.5
+local tool_durability = 12
+local tool_damage = 0.8
 
 function KSRegisterToolsTier1(woodType, headType, headName, groupsOverride, durabilityOverride)
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_pickaxe", {
@@ -9,13 +9,14 @@ function KSRegisterToolsTier1(woodType, headType, headName, groupsOverride, dura
 			full_punch_interval = 1.0,
 			max_drop_level=1,
 			groupcaps={
-				chippable={times={[1]=tool_damage*2, [2]=tool_damage*4}, uses=tool_durability/durabilityOverride, maxlevel=1},
+				chippable={times={[1]=tool_damage*2, [2]=tool_damage*4, [3]=tool_damage*16}, uses=tool_durability*durabilityOverride, maxlevel=2},
 			},
 			damage_groups = {fleshy=tool_damage},
 		},
 		visual_scale = 1.69,
 		groups = concat(groupsOverride, {pickaxe_tool = 1})
 	})
+
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_axe", {
 		description = headName .. " Axe",
 		inventory_image = "tools.zzbuilder_stick_" .. woodType .. ".png^tools.zzbuilder_axehead_" .. headType .. ".png",
@@ -23,14 +24,15 @@ function KSRegisterToolsTier1(woodType, headType, headName, groupsOverride, dura
 			full_punch_interval = 1.0,
 			max_drop_level=1,
 			groupcaps={
-				choppable={times={[1]=tool_damage, [2]=tool_damage*2}, uses=tool_durability/durabilityOverride, maxlevel=1},
-				sliceable={times={[1]=tool_damage/4, [2]=tool_damage/2}, uses=tool_durability/durabilityOverride, maxlevel=1},
+				choppable={times={[1]=tool_damage*2, [2]=tool_damage*4}, uses=tool_durability*durabilityOverride, maxlevel=2},
+				sliceable={times={[1]=tool_damage/2, [2]=tool_damage}, uses=(tool_durability*1.5)*durabilityOverride, maxlevel=2},
 			},
 			damage_groups = {fleshy=tool_damage},
 		},
 		visual_scale = 1.69,
 		groups = concat(groupsOverride, {axe_tool = 1})
 	})
+
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_shovel", {
 		description = headName .. " Shovel",
 		inventory_image = "tools.zzbuilder_stick_" .. woodType .. ".png^tools.zzbuilder_shovelhead_" .. headType .. ".png",
@@ -38,24 +40,17 @@ function KSRegisterToolsTier1(woodType, headType, headName, groupsOverride, dura
 			full_punch_interval = 1.0,
 			max_drop_level=1,
 			groupcaps={
-				diggable={times={[1]=tool_damage, [2]=tool_damage*2}, uses=tool_durability/durabilityOverride, maxlevel=1}
+				diggable={times={[1]=tool_damage, [2]=tool_damage*1.5}, uses=tool_durability*durabilityOverride, maxlevel=2}
 			},
 			damage_groups = {fleshy=tool_damage},
 		},
 		visual_scale = 1.69,
 		groups = concat(groupsOverride, {shovel_tool = 1})
 	})
+
 	minetest.register_tool("ks_tools:" .. woodType .. "_" .. headType .. "_chisel", {
 		description = headName .. " Chisel",
 		inventory_image = "tools.zzbuilder_stick_" .. woodType .. ".png^tools.zzbuilder_chiselhead_" .. headType .. ".png",
-		tool_capabilities = {
-			full_punch_interval = 1.0,
-			max_drop_level=1,
-			groupcaps={
-				chippable={times={[1]=tool_damage*6, [2]=tool_damage*12}, uses=tool_durability/durabilityOverride, maxlevel=1},
-			},
-			damage_groups = {fleshy=tool_damage},
-		},
 		visual_scale = 1.69,
 		groups = concat(groupsOverride, {chisel_tool = 1}),
 		on_use = function(itemstack, user, pointed_thing)

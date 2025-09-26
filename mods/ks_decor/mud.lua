@@ -10,7 +10,7 @@ function KSRegisterPackedSoilType(rake_type)
 	minetest.register_node("ks_decor:baked_soil" .. rake_type, {
 		description = "Ceramic",
 		tiles = {"decor.bakedsoil.png^decor.overlay_raked" .. rake_type .. ".png"},
-		groups = {ceramic = 1, chippable = 2},
+		groups = {ceramic = 1, chippable = 3},
 		is_ground_content = true,
 		drop = {
 			max_items = 1,
@@ -111,7 +111,7 @@ minetest.register_craftitem("ks_decor:ceramic_shard", {
 minetest.register_node("ks_decor:ceramic_gravel", {
 	description = "Ceramic Gravel",
 	tiles = {"decor.ceramic_gravel.png"},
-	groups = {gravel = 1, diggable = 2, falling_node = 1},
+	groups = {gravel = 1, diggable = 1, falling_node = 1},
 	is_ground_content = true,
 	sounds = ks_sounds.generalnode_sounds,
 	drop = "ks_decor:ceramic_shard"

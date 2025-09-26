@@ -1,5 +1,5 @@
 local tool_durability = 4
-local tool_damage = 0.5
+local tool_damage = 0.8
 
 function KSRegisterAdze(woodType, woodName, durabilityOverride)
 	minetest.register_tool("ks_tools:" .. woodType .. "_adze", {
